@@ -57,12 +57,14 @@ const AlumniProfilePage: React.FC = () => {
         .from('profiles_public')
         .select('*')
         .eq('user_id', userId)
-        .maybeSingle();
-
+        .single();
+      console.log("User ID:", userId);
+      console.log("Profile Data:", profileData);
+      console.log("Error:", profileError);
       if (profileError) throw profileError;
-      if (profileData) {
-        setProfile(profileData as unknown as ProfilePublic);
-      }
+      
+      setProfile(profileData); //as unknown as ProfilePublic);
+      
 
       // Fetch alumni details if they exist
       const { data: alumniData } = await supabase
@@ -74,11 +76,11 @@ const AlumniProfilePage: React.FC = () => {
       if (alumniData) {
         setAlumniDetails(alumniData as unknown as AlumniDetails);
       }
-    } catch (error) {
+    } catch (error:any) {
       console.error('Error fetching profile:', error);
       toast({
         title: 'Error',
-        description: 'Failed to load profile.',
+        description: error.message,
         variant: 'destructive',
       });
     } finally {

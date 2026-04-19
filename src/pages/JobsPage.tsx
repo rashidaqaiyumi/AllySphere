@@ -22,7 +22,7 @@ const JobsPage = () => {
   const [selectedJob, setSelectedJob] = useState<any>(null);
   const [postFormKey, setPostFormKey] = useState(0);
 
-  const isAlumni = userRole === "alumni";
+  const isAlumni = userRole === "alumni" || userRole === "admin";
   const isStudent = userRole === "student";
   // Faculty and admin can view but not post
 
@@ -162,7 +162,7 @@ const JobsPage = () => {
         </div>
 
         {isAlumni ? (
-          <Tabs defaultValue="browse" className="space-y-6">
+          <Tabs defaultValue="post" className="space-y-6">
             <TabsList>
               <TabsTrigger value="browse">Browse Jobs</TabsTrigger>
               <TabsTrigger value="post">Post a Job</TabsTrigger>

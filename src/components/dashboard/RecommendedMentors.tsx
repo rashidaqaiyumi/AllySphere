@@ -39,7 +39,7 @@ const RecommendedMentors = () => {
     else setLoading(true);
 
     try {
-      const { data, error } = await supabase.functions.invoke('ai-recommendations', {
+      const { data, error } = await supabase.functions.invoke('ai-batch-mates', {
         body: {},
       });
 
