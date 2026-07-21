@@ -165,9 +165,11 @@ Experience the live application and explore the platform.
 
 # 🏗️ System Architecture
 
-📄 **Architecture Diagram**
+The following diagram illustrates the overall architecture of the AllySphere platform, showcasing the interaction between the frontend, backend services, authentication, and database.
 
-👉 [View System Architecture](docs/dashboard.pdf)
+<p align="center">
+  <img src="docs/architecture.png" alt="AllySphere System Architecture" width="90%">
+</p>
 
 ---
 
